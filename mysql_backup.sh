@@ -2,7 +2,7 @@
 #==============================================================================
 #TITLE:            mysql_backup.sh
 #DESCRIPTION:      Script para automatizar las copias de seguridad diarias de MySQL del servidor
-#AUTHOR:           Rafaek Villafuerte
+#AUTHOR:           Rafael Villafuerte
 #DATE:             2023-11-29
 #VERSION:          0.1
 #USAGE:            ./mysql_backup.sh
