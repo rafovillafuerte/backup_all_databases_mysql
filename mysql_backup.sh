@@ -6,6 +6,7 @@
 #DATE:             2023-11-29
 #VERSION:          0.1
 #USAGE:            ./mysql_backup.sh
+#IMPORTANTE:       El servidor debe tener instalado PV Pipe Viewer para poder visualizar progressbar en mysqldump
 #CRON:
   # Ej. para cron job, copias diarias a las  @ 9:15 am
   # min  hr mday month wday command
@@ -72,7 +73,8 @@ function backup_database(){
     backup_file="$BACKUP_DIR/$TIMESTAMP.$database.sql.gz" 
     output+="$database => $backup_file\n"
     echo_status "...respaldando $count de $total bases de datos: $database"
-    $(mysqldump $(mysql_login) --routines --triggers $database | gzip -9 > $backup_file)
+    db_size=$(mysql   $(mysql_login) --silent --skip-column-names -e "SELECT ROUND(SUM(data_length) / 1024 / 1024, 0) FROM information_schema.TABLES WHERE table_schema='$database';")
+    $(mysqldump $(mysql_login) --routines --triggers $database | pv --progress -W -s "$db_size"m | gzip -9 > $backup_file)
 }
 
 function backup_databases(){
