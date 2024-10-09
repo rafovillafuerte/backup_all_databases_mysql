@@ -14,5 +14,7 @@ $ gunzip < [backupfile.sql.gz] | mysql -u [uname] -p[pass] [dbname]
 
 ó
 
-$ gunzip [backupfile.sql.gz] $ mysql -u [uname] -p[pass] [dbname] < [backupfile.sql]
+$ gunzip [backupfile.sql.gz] 
+
+$ mysql -u [uname] -p[pass] [dbname] < [backupfile.sql]
 
