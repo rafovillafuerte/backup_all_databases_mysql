@@ -28,7 +28,7 @@ MYSQL_PWORD=
 
 # No haga copias de seguridad de bases de datos con estos nombres 
 # Example: comienza con mysql (^mysql) o termina con _schema (_schema$)
-IGNORE_DB="(^mysql|_schema$)"
+IGNORE_DB="(^mysql|_schema$|^sys)"
 
 # incluir binarios mysql y mysqldump para el usuario cron bash
 PATH=$PATH:/usr/local/mysql/bin
