@@ -18,3 +18,6 @@ $ gunzip [backupfile.sql.gz]
 
 $ mysql -u [uname] -p[pass] [dbname] < [backupfile.sql]
 
+Nota: Para remover las clausulas DEFINER usar el siguiente comando.
+
+sed 's/\sDEFINER=`[^`]*`@`[^`]*`//g' -i backupfile.sql
