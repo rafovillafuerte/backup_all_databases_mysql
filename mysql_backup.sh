@@ -72,8 +72,9 @@ function echo_status(){
 function backup_database(){
     backup_file="$BACKUP_DIR/$TIMESTAMP.$database.sql.gz" 
     output+="$database => $backup_file\n"
-    echo_status "...respaldando $count de $total bases de datos: $database"
-    db_size=$(mysql   $(mysql_login) --silent --skip-column-names -e "SELECT ROUND(SUM(data_length) / 1024 / 1024, 0) FROM information_schema.TABLES WHERE table_schema='$database';")
+    #echo_status "...respaldando $count de $total bases de datos: $database"
+    echo "...respaldando $count de $total bases de datos: $database"
+    db_size=$(mysql $(mysql_login) --silent --skip-column-names -e "SELECT ROUND(SUM(data_length) / 1024 / 1024, 0) FROM information_schema.TABLES WHERE table_schema='$database';")
     $(mysqldump $(mysql_login) --routines --triggers $database | pv --progress -W -s "$db_size"m | gzip -9 > $backup_file)
 }
 
