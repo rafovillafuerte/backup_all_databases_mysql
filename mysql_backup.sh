@@ -70,7 +70,7 @@ function echo_status(){
 }
 
 function backup_database(){
-    backup_file="$BACKUP_DIR/$TIMESTAMP_$database.sql.gz" 
+    backup_file="$BACKUP_DIR/$TIMESTAMP.$database.sql.gz" 
     output+="$database => $backup_file\n"
     #echo_status "...respaldando $count de $total bases de datos: $database"
     echo "...respaldando $count de $total bases de datos: $database"
