@@ -6,13 +6,10 @@ Crear copias de seguridad diarias a las 9:15 am usando CRON JOB
 
  min  hr mday month wday command
  
- 15   9  *    *     *    /[path]/scripts/mysql_backup.sh
+ 15   9  *    *     *    /[path]/scripts/public_html_backup.sh
  
 # Restaurar desde Backup
+$ cd /home/<user name>
+$ tar -xvf < [backupfile.tar.gz] 
 
-$ gunzip < [backupfile.sql.gz] | mysql -u [uname] -p[pass] [dbname]
 
-ó
-
-$ gunzip [backupfile.sql.gz]
-$ mysql -u [uname] -p[pass] [dbname] < [backupfile.sql]
