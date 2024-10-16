@@ -20,7 +20,7 @@
 #==============================================================================
 
 # DIRECTORIO DONDE SE ALMACENARAN LOS BACKUP
-BACKUP_DIR=/home/perudalia/public_html/backups
+BACKUP_DIR=/home/user/public_html/backups
 
 # MYSQL Parametros
 MYSQL_UNAME=root
